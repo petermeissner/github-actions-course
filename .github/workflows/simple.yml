@@ -15,10 +15,12 @@ jobs:
            node -v 
            npm -v
       - name: run python command
-        shell: python3
+        shell: python
         run: |
           import platform
+          import sys
           print(platform.processor())
+          print(sys.version)
   run_windows_commands:
     runs-on: windows-latest
     steps:
