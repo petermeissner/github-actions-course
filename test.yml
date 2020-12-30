@@ -1,1 +1,23 @@
-{age: 28, name: Ali}
+string_value: peter
+bolean_value: true
+number value: 1
+msg_1: posted text with spaces
+msg_2: >
+    posted message with several 
+    lines 
+    of code
+    with newlines ignored
+msg_3: |
+    posted message with several 
+    lines 
+    of code
+    with newlines taken as-is
+an_array:
+  - 
+  - 1
+  - zwei
+  - "3"
+  - object_key: value
+    second object_key: and its value
+json_array_within_yaml: [1, 2, 3, true]
+json_object_within_yaml: {key: val, another key: another val}

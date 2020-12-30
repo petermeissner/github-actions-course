@@ -1,10 +1,12 @@
 name: Shell Commands 
 
-on: [push]
+on: 
+  - push
+  - issues
 
 jobs:
   run-shell-command:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     steps: 
       - name: echo a string
         run: echo "Hello World"
