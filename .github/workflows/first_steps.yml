@@ -26,7 +26,6 @@ jobs:
     steps:
       - name: Directory Powershell
         run: Get-Location
-        steps:
       - name: Directory Bash
         run: pwd
         shell: bash
