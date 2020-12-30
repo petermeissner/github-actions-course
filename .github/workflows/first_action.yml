@@ -1,0 +1,13 @@
+name: GH Actions
+
+on: 
+  - push
+
+jobs:
+  run_github_actions:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: simple JS Actions
+        uses: actions/hello-world-javascript-action@main
+        with:
+          who-to-greet: 'Peter'
