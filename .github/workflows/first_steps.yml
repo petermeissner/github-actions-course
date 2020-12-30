@@ -5,12 +5,12 @@ on:
   - issues
 
 jobs:
-  run-shell-command:
+  run_shell_command:
     runs-on: ubuntu-20.04
     steps: 
       - name: echo a string
         run: echo "Hello World"
-      - name: multiline script 
+      - name: multi line script 
         run: |
            node -v 
            npm -v
@@ -23,6 +23,7 @@ jobs:
           print(sys.version)
   run_windows_commands:
     runs-on: windows-latest
+    needs: run_shell_command
     steps:
       - name: Directory Powershell
         run: Get-Location
