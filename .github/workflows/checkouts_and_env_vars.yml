@@ -1,4 +1,4 @@
-name: Github Actions
+name: Env Vars
 
 on: [push]
 
@@ -14,7 +14,3 @@ jobs:
           echo $GITHUB_REPOSITORY
           echo $GITHUB_WORKSPACE
           echo "${{ github.token }}"
-      - name: Log Greeting Time
-        run: echo "${{ steps.greet.outputs.time }}"
-      - name: Log Pusher Name
-        run: echo "${{ steps.greet.outputs.pusher }}"
