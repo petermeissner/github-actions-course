@@ -1,0 +1,20 @@
+name: Github Actions
+
+on: [push]
+
+jobs:
+  run_github_actions:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Some Env vars
+        run: |
+          pwd
+          ls -a
+          echo $GITHUB_SHA
+          echo $GITHUB_REPOSITORY
+          echo $GITHUB_WORKSPACE
+          echo "${{ github.token }}"
+      - name: Log Greeting Time
+        run: echo "${{ steps.greet.outputs.time }}"
+      - name: Log Pusher Name
+        run: echo "${{ steps.greet.outputs.pusher }}"
