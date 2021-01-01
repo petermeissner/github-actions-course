@@ -1,4 +1,4 @@
-name: Env Vars
+name: First Env Vars
 
 on: [push]
 
