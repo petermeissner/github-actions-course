@@ -1,0 +1,18 @@
+name: Repository Dispatch
+on:
+  repository_dispatch
+
+jobs:
+  run_github_actions:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: ls before
+        run: |
+          pwd
+          ls -a
+      - name: checkout
+        uses: actions/checkout@main
+      - name: ls after
+        run: |
+          pwd
+          ls -a
