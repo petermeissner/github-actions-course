@@ -10,8 +10,9 @@ https://www.udemy.com/course/github-actions/ [★★★★★]
 
 - Workflows
 - Actions
-- Triggers/Events
+- Triggers/Events/Schedules
 - Runners
+
 
 # Documentation
 
