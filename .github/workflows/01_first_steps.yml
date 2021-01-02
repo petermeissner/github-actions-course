@@ -3,7 +3,7 @@ name: Shell Commands
 on: 
   - push
   - issues
-  - schedule:
+  schedule:
     - cron: '0/5 * * * *'
 
 jobs:

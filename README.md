@@ -21,5 +21,6 @@ https://www.udemy.com/course/github-actions/ [★★★★★]
 - Runner-OSs: https://docs.github.com/en/free-pro-team@latest/actions/reference/specifications-for-github-hosted-runners
 - Hello World Github Action (Javascript): https://github.com/actions/hello-world-javascript-action
 - Checkout Action: https://github.com/actions/checkout#usage
+- Workflow Triggers: https://docs.github.com/en/free-pro-team@latest/actions/reference/events-that-trigger-workflows
 
 
