@@ -1,7 +1,9 @@
 name: repository_dispatch
+
 on:
   workflow_dispatch:
-    
+  repository_dispatch:
+    types: ["manual_trigger"]
 
 jobs:
   run_github_actions:

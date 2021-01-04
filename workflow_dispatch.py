@@ -3,7 +3,7 @@ import requests
 
 token = open('github_token.txt', 'r').read().replace("\n", "")
 
-url = "https://api.github.com/repos/petermeissner/github-actions-course/dispatches"
+url = "https://api.github.com/repos/petermeissner/github-actions-course/actions/workflows/05_repository_dispatch.yml/dispatches"
 r = requests.post(
   url=url, 
   headers=
@@ -11,10 +11,7 @@ r = requests.post(
       "Accept": "application/vnd.github.v3+json",
       "Authorization": "token " + token
     },
-  json = {
-    "ref": "master", 
-    "event_type": "manual_trigger"
-  }
+  json={"ref": "master"}
 )
 
 print("\n == URL ==")
