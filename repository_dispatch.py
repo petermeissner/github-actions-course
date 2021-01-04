@@ -12,7 +12,10 @@ r = requests.post(
       "Authorization": "token " + token
     },
   json = {
-    "event_type": "manual_trigger"
+    "event_type": "manual_trigger",
+    "client_payload": {
+      "msg": "Peter was here ... buh!"
+    }
   }
 )
 

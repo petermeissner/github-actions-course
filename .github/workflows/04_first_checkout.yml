@@ -1,6 +1,9 @@
 name: First Env Vars
 
-on: [push]
+on:
+  release:
+    types: [created]
+#on: [push]
 
 jobs:
   run_github_actions:
