@@ -1,0 +1,49 @@
+name: Environment Variables
+
+on: push
+
+env: 
+  WF_ENV: ALL_JOBS_DO_KNOW
+
+jobs:
+  log_env_1:
+    runs-on: ubuntu-20.04
+    env:
+      JOB_ENV: "Log 1, over."
+    steps:
+      - name: Log it
+        env:
+          STEP_ENV: Really, this is an option, too???!
+        run: |
+          echo "Workflows says: ${WF_ENV}"
+          echo "Workflows says: ${JOB_ENV}"
+          echo "Workflows says: ${STEP_ENV}"
+
+  log_env_2:
+    runs-on: ubuntu-20.04
+    env:
+      JOB_ENV: "Log 2, out"
+    steps:
+      - name: Log it
+        run: |
+          echo "Workflows says: ${WF_ENV}"
+          echo "Job says: ${JOB_ENV}"
+
+  log_default_env:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Log it
+        run: |
+          echo "- HOME: ${HOME}"
+          echo "- GITHUB_WORKFLOW: ${GITHUB_WORKFLOW}"
+          echo "- GITHUB_ACTION: ${GITHUB_ACTION}"
+          echo "- GITHUB_ACTIONS: ${GITHUB_ACTIONS}"
+          echo "- GITHUB_ACTOR: ${GITHUB_ACTOR}"
+          echo "- GITHUB_REPOSITORY: ${GITHUB_REPOSITORY}"
+          echo "- GITHUB_EVENT_NAME: ${GITHUB_EVENT_NAME}"
+          echo "- GITHUB_WORKSPACE: ${GITHUB_WORKSPACE}"
+          echo "- GITHUB_SHA: ${GITHUB_SHA}"
+          echo "- GITHUB_REF: ${GITHUB_REF}"
+          echo "Workflows says: ${WF_ENV}"
+          echo "Workflows says: ${JOB_ENV}"
+          echo "Workflows says: ${STEP_ENV}"
