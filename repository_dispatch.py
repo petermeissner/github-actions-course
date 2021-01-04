@@ -12,7 +12,6 @@ r = requests.post(
       "Authorization": "token " + token
     },
   json = {
-    "ref": "master", 
     "event_type": "manual_trigger"
   }
 )
