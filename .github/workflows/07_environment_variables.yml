@@ -56,4 +56,4 @@ jobs:
         run: |
           echo "WF_ENV: ${WF_ENV}"
           echo "WF_ENV_ENCRYPTED: ${{ secrets.WF_ENV_ENCRYPTED }}"
-          #echo "WF_ENV_ENCRYPTED: ${ WF_ENV_ENCRYPTED }"
+          echo "WF_ENV_ENCRYPTED: ${WF_ENV_ENCRYPTED}"
