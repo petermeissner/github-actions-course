@@ -4,6 +4,7 @@ on: push
 
 env: 
   WF_ENV: ALL_JOBS_DO_KNOW
+  WF_ENV_ENCRYPTED: ${{ secrets.WF_ENV_ENCRYPTED}}
 
 jobs:
   log_env_1:
@@ -47,3 +48,11 @@ jobs:
           echo "Workflows says: ${WF_ENV}"
           echo "Workflows says: ${JOB_ENV}"
           echo "Workflows says: ${STEP_ENV}"
+
+  log_env_encrypted: 
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Log encrypted
+        run: |
+          echo "WF_ENV_ENCRYPTED: ${ WF_ENV_ENCRYPTED }"
+          echo "WF_ENV_ENCRYPTED: ${{ secrets.WF_ENV_ENCRYPTED }}"
