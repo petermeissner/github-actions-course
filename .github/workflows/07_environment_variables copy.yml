@@ -1,6 +1,9 @@
-name: Environment Variables
+name: Github Token Secret
 
-on: push
+on: 
+  workflow_dispatch:
+  repository_dispatch:
+    types: ["manual_trigger"]
 
 env: 
   WF_ENV: ALL_JOBS_DO_KNOW
