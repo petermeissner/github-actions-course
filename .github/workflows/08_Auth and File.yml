@@ -12,18 +12,20 @@ jobs:
         pwd
         ls -la
         
-        gh repo clone petermeissner/github-actions-course
-        
-        #git init
-        #git remote add origin "https://$GTIHUB_ACTOR:${{secrets.GITHUB_TOKEN}}@github.com/$GITHUB_REPOSITORY.git"
+        git init
+        git remote add origin "https://$GTIHUB_ACTOR:${{secrets.GITHUB_TOKEN}}@github.com/$GITHUB_REPOSITORY.git"
 
         git config --global user.email "bot@bot.bot"
         git config --global user.name "bot"
-        git checkout master
+
         git branch --set-upstream-to=origin/master
+        git checkout master
         git pull
+
         ls -la
+        
         echo $(date +"%Y-%m-%d_%H-%M-%S"), $RANDOM >> random.csv
+        
         git add --all 
         commit -m "random bot entry"
         git push
