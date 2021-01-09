@@ -20,7 +20,8 @@ jobs:
         git pull
         ls -la
         echo $(date +"%Y-%m-%d_%H-%M-%S"), $RANDOM >> random.csv
-        git add --globalgit commit -m "random bot entry"
+        git add --all 
+        commit -m "random bot entry"
         git push
     - name: Create Issue Using REST API
       run: |
