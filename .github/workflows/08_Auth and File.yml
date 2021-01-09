@@ -7,7 +7,7 @@ jobs:
   create_issue:
     runs-on: ubuntu-latest
     steps:
-    - name: Push random file
+    - name: Push Random File
       run: |
         pwd
         ls -la
@@ -15,14 +15,14 @@ jobs:
         git remote add origin "https://$GTIHUB_ACTOR:${{secrets.GITHUB_TOKEN}}@github.com/$GITHUB_REPOSITORY.git"
         git config --global user.email "bot@bot.bot"
         git config --global user.name "bot"
-        gi checkout master
+        git checkout master
         git branch --set-upstream-to=origin/master
         git pull
         ls -la
         echo $(date +"%Y-%m-%d_%H-%M-%S"), $RANDOM >> random.csv
         git add --globalgit commit -m "random bot entry"
         git push
-    - name: Create issue using REST API
+    - name: Create Issue Using REST API
       run: |
         curl --request POST \
         --url https://api.github.com/repos/${{ github.repository }}/issues \
