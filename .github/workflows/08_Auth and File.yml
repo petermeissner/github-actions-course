@@ -1,41 +1,28 @@
 name: Auth and File
-
 on: push
 
 
 jobs:
-  create_issue:
+  build:
     runs-on: ubuntu-latest
     steps:
-    - name: Push Random File
-      run: |
-        pwd
-        ls -la
-        
-        git init
-        git remote add origin "https://$GTIHUB_ACTOR:${{secrets.GITHUB_TOKEN}}@github.com/$GITHUB_REPOSITORY.git"
+      - uses: actions/checkout@latest
+      - name: Push Random File
+        run: |
+          echo $(date +"%Y-%m-%d_%H-%M-%S"), $RANDOM >> random.csv
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git add random.csv
+          commit -m "random bot entry"
+          git push
+      - name: Create Issue Using REST API
+        run: |
+          curl --request POST \
+          --url https://api.github.com/repos/${{ github.repository }}/issues \
+          --header 'authorization: Bearer ${{ secrets.GITHUB_TOKEN }}' \
+          --header 'content-type: application/json' \
+          --data '{
+            "title": "Automated issue for commit: ${{ github.sha }}",
+            "body": "This issue was automatically created by the GitHub Action workflow **${{ github.workflow }}**. \n\n The commit hash was: _${{ github.sha }}_."
+            }'
 
-        git config --global user.email "bot@bot.bot"
-        git config --global user.name "bot"
-
-        git branch --set-upstream-to=origin/master
-        git checkout origin/master
-        git pull
-
-        ls -la
-        
-        echo $(date +"%Y-%m-%d_%H-%M-%S"), $RANDOM >> random.csv
-        
-        git add --all 
-        commit -m "random bot entry"
-        git push
-    - name: Create Issue Using REST API
-      run: |
-        curl --request POST \
-        --url https://api.github.com/repos/${{ github.repository }}/issues \
-        --header 'authorization: Bearer ${{ secrets.GITHUB_TOKEN }}' \
-        --header 'content-type: application/json' \
-        --data '{
-          "title": "Automated issue for commit: ${{ github.sha }}",
-          "body": "This issue was automatically created by the GitHub Action workflow **${{ github.workflow }}**. \n\n The commit hash was: _${{ github.sha }}_."
-          }'
