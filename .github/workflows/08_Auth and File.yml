@@ -1,5 +1,9 @@
 name: Auth and File
-on: push
+
+on: 
+  workflow_dispatch:
+  repository_dispatch:
+    types: ["manual_trigger"]
 
 
 jobs:
