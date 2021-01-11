@@ -1,6 +1,9 @@
 name: Contexts
 
-on: push
+on: 
+  workflow_dispatch:
+  repository_dispatch:
+    types: ["manual_trigger"]
 
 env:
   myNull: ${{ null }}
