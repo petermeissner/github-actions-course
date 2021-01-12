@@ -1,7 +1,11 @@
 name: Setup/Matrix
 
-on: push
+on: 
+  workflow_dispatch:
+  repository_dispatch:
+    types: ["manual_trigger"]
 
+    
 jobs:
   node_version:
     runs-on: ubuntu-latest

@@ -1,0 +1,20 @@
+name: Container
+
+on: push
+
+# on:
+#   workflow_dispatch:
+#   repository_dispatch:
+#     types: ["manual_trigger"]
+
+    
+jobs:
+  r_docker:
+    runs-on: ubuntu-latest
+    container: 
+      image: rocker:r-devel
+    steps:
+      - name: Log R version
+        run: Rscript -e "sessionInfo()"
+      
+
