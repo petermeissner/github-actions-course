@@ -12,7 +12,7 @@ jobs:
   r_docker:
     runs-on: ubuntu-latest
     container: 
-      image: rocker:r-devel
+      image: rocker/r-devel
     steps:
       - name: Log R version
         run: Rscript -e "sessionInfo()"
