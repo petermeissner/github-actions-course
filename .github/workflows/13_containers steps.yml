@@ -1,4 +1,4 @@
-name: Containers
+name: Containers in Steps
 
 on: push
 
@@ -9,7 +9,7 @@ on: push
 
     
 jobs:
-  dockers:
+  docker_steps:
     runs-on: ubuntu-latest
     container:
       image: python:3.8

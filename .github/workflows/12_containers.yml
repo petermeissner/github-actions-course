@@ -1,11 +1,11 @@
 name: Containers
 
-on: push
+# on: push
 
-# on:
-#   workflow_dispatch:
-#   repository_dispatch:
-#     types: ["manual_trigger"]
+on:
+  workflow_dispatch:
+  repository_dispatch:
+    types: ["manual_trigger"]
 
     
 jobs:
