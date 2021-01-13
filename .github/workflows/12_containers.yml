@@ -1,4 +1,4 @@
-name: Container
+name: Containers
 
 on: push
 
@@ -20,6 +20,8 @@ jobs:
         ports: [27017:27017]
     steps:
       - name: Post a user
-        run: "curl -X POST http://localhost:3001/api/users -H 'Content-Type: application/json' -d '{\"username\": \"hello\", \"address\": \"sesame street\"}' "
+        run: "curl -X POST http://localhost:3001/api/user -H 'Content-Type: application/json' -d '{\"username\": \"hello\", \"address\": \"sesame street\"}' "
+      - name: Get Users
+        run: curl http://localhost:3001/api/users
       
 
