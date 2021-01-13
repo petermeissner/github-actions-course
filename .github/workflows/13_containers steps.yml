@@ -1,0 +1,30 @@
+name: Containers
+
+on: push
+
+# on:
+#   workflow_dispatch:
+#   repository_dispatch:
+#     types: ["manual_trigger"]
+
+    
+jobs:
+  dockers:
+    runs-on: ubuntu-latest
+    container:
+      image: python:3.8
+    steps:
+      - name: Log Python Version
+        run: python --version
+      - name: step with dockers
+        uses: docker://python:rc
+        with:
+          entrypoint: '/bin/echo'
+          args: 'Ola'
+      - name: step with dockers
+        uses: docker://python:rc
+        with:
+          entrypoint: '/usr/bin/python'
+          args: '--version'
+      
+
