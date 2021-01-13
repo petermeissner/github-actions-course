@@ -16,6 +16,8 @@ jobs:
     
     steps:
       - uses: actions/checkout@v1
+      - name: Check files
+        run: ls -al
       - name: Run Script
         uses: docker://python:rc
         with:
