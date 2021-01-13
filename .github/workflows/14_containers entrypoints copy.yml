@@ -1,11 +1,11 @@
 name: Containers in Steps
 
-on: push
+# on: push
 
-# on:
-#   workflow_dispatch:
-#   repository_dispatch:
-#     types: ["manual_trigger"]
+on:
+  workflow_dispatch:
+  repository_dispatch:
+    types: ["manual_trigger"]
 
     
 jobs:
@@ -13,21 +13,21 @@ jobs:
     runs-on: ubuntu-latest
     container:
       image: python:3.8
+    
     steps:
+    
       - name: python system
         run: python --version
-      - name: step with dockers
-        uses: docker://python:rc
-        with:
-          entrypoint: '/bin/echo'
-          args: 'Ola'
+
       - name: python3 system
         uses: docker://python:rc
         with:
           entrypoint: '/usr/bin/python3'
           args: '--version'
+
       - name: python3 3.8
         run: python3 --version
+
       - name: python3 latest
         uses: docker://python:rc
         with:
