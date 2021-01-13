@@ -15,18 +15,23 @@ jobs:
       image: python:3.8
     
     steps:
+      
       - uses: actions/checkout@v1
+      
       - name: Check files
         run: ls -al
-      - name: Check files
+      
+      - name: Make script executable
         run: chmod +x git_action_script.sh
+      
       - name: Check files again
         run: ls -al
+      
       - name: Run Script
         uses: docker://python:rc
         with:
           entrypoint: ./git_action_script.sh
-          args: 'I was here indeed'
+          args: "'I was here indeed'"
 
       
 
