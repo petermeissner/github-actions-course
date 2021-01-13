@@ -27,9 +27,7 @@ jobs:
           entrypoint: '/usr/bin/python3'
           args: '--version'
       - name: python3 3.8
-        with:
-          entrypoint: 'python3'
-          args: '--version'
+        run: python3 --version
       - name: python3 latest
         uses: docker://python:rc
         with:
