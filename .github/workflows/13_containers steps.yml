@@ -24,7 +24,12 @@ jobs:
       - name: step with dockers
         uses: docker://python:rc
         with:
-          entrypoint: '/usr/bin/python'
+          entrypoint: '/usr/bin/python3'
+          args: '--version'
+      - name: step with dockers
+        uses: docker://python:rc
+        with:
+          entrypoint: 'python3'
           args: '--version'
       
 
